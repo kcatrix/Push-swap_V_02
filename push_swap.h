@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 11:41:38 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/01/31 15:09:04 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/01/29 13:53:08 by kevyn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_stock
 	int				tab3[1000];
 	int				nchunk;
 	int 			limit;
+	int				max;
 } t_stock;
 
 t_stack	*ft_lstnew(int content);
@@ -102,8 +103,8 @@ void	ft_ra(t_stack **stack);
 void	ft_rb(t_stack **stack);
 void	ft_rra(t_stack **stack);
 void	ft_rrb(t_stack **stack);
-void	ft_pa(t_stack **stack_b, t_stack **stack_a);
-void	ft_pb(t_stack **stack_a, t_stack **stack_b);
+void	ft_pa(t_stack **stack_b, t_stack **stack_a, t_stock *stock);
+void	ft_pb(t_stack **stack_a, t_stack **stack_b, t_stock *stock);
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
 void	ft_rr(t_stack **stack_a, t_stack **stack_b);
 void	ft_ss(t_stack **stack_a, t_stack **stack_b);

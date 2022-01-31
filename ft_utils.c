@@ -6,7 +6,7 @@
 /*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 11:44:31 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/01/24 18:24:46 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/01/29 13:52:30 by kevyn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_ss(t_stack **stack_a, t_stack **stack_b)
 	write(1, "ss\n", 3);
 }
 
-void	ft_pa(t_stack **stack_a, t_stack **stack_b)
+void	ft_pa(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
 {
 	t_stack	*ptr_a;
 	t_stack	*ptr_b;
@@ -77,10 +77,12 @@ void	ft_pa(t_stack **stack_a, t_stack **stack_b)
 	if (*stack_a)
 		ft_lstadd_front(stack_a, ptr_b);
 	*stack_a = ptr_b;
+	stock->size_b--;
+	stock->size_a++;
 	write(1, "pa\n", 3);
 }
 
-void	ft_pb(t_stack **stack_a, t_stack **stack_b)
+void	ft_pb(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
 {
 	t_stack	*ptr_a;
 	t_stack	*ptr_b;
@@ -93,5 +95,7 @@ void	ft_pb(t_stack **stack_a, t_stack **stack_b)
 	if (*stack_b)
 		ft_lstadd_front(stack_b, ptr_b);
 	*stack_b = ptr_b;
+	stock->size_b++;
+	stock->size_a--;
 	write(1, "pb\n", 3);
 }

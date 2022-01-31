@@ -200,7 +200,7 @@ void mvlower4(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
     if (i == 3)
     {
         ft_rra(stack_a);
-        ft_pb(stack_a, stack_b);
+        ft_pb(stack_a, stack_b, stock);
     }
     else
     {
@@ -209,7 +209,7 @@ void mvlower4(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
             ft_ra(stack_a);
             i--;
         }
-        ft_pb(stack_a, stack_b);
+        ft_pb(stack_a, stack_b, stock);
     }
 }
  
@@ -218,7 +218,7 @@ void    ft_tri4(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
     getlower4_5(stack_a, stock);
     mvlower4(stack_a, stack_b, stock);
     ft_tri3(stack_a);
-    ft_pa(stack_a, stack_b);
+    ft_pa(stack_a, stack_b, stock);
 }
 
 void    ft_tri5(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
@@ -228,8 +228,8 @@ void    ft_tri5(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
     getlower4_5(stack_a, stock);
     mvlower4(stack_a, stack_b, stock);
     ft_tri3(stack_a);
-    ft_pa(stack_a, stack_b);
-    ft_pa(stack_a, stack_b);
+    ft_pa(stack_a, stack_b, stock);
+    ft_pa(stack_a, stack_b, stock);
     ft_ra(stack_a);
 }
 
@@ -245,7 +245,7 @@ void    mvbigger5(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
             ft_rra(stack_a);
             count--;
         }
-        ft_pb(stack_a, stack_b);
+        ft_pb(stack_a, stack_b, stock);
     }
     else
     {
@@ -254,7 +254,7 @@ void    mvbigger5(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
             ft_ra(stack_a);
             stock->pos_bigger--;
         }
-        ft_pb(stack_a, stack_b);
+        ft_pb(stack_a, stack_b, stock);
     }
 }
 
@@ -297,20 +297,17 @@ void    ft_tri100(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
     int val;
 	int pos;
 
-	get_size_a(stack_a, stock);
-	while (stock->size_a)
+	while (*stack_a)
 	{
     	val = ft_indic100(stack_a, stock);
     	pos = ft_pos(stack_a, val, stock);
+		printf("val = %d\n", val);
+		printf("pos = %d\n", pos);
+		ft_print_lst(*stack_a);
 		ft_remonte(stack_a, stack_b, stock);
-		stock->size_a--;
 	}
-	get_size_a(stack_b, stock);
-	while (stock->size_a)
-	{
-		ft_pa(stack_a, stack_b);
-		stock->size_a--;
-	}
+	while (*stack_b)
+		ft_pa(stack_a, stack_b, stock);
 }	
 
 int   ft_indic100(t_stack **stack_a, t_stock *stock)
@@ -351,23 +348,22 @@ int	ft_pos(t_stack **stack_a, int val, t_stock *stock)
 
 void	ft_remonte(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
 {
-	get_size(stack_a, stock);
-	if (stock->pos_shorter < stock->size_all / 2)
+	if (stock->pos_shorter < stock->size_a / 2)
 	{
 		while(stock->pos_shorter != 1)
 		{
 			ft_ra(stack_a);
 			stock->pos_shorter--;
 		}
-		ft_pb(stack_a, stack_b);
+		ft_pb(stack_a, stack_b, stock);
 	}
-	else if (stock->pos_shorter > stock->size_all / 2)
+	else if (stock->pos_shorter > stock->size_a / 2)
 	{
-		while(stock->pos_shorter != stock->size_all + 1)
+		while(stock->pos_shorter != stock->size_a + 1)
 		{
 			ft_rra(stack_a);
 			stock->pos_shorter++;
 		}
-		ft_pb(stack_a, stack_b);
+		ft_pb(stack_a, stack_b, stock);
 	}
 }
