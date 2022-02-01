@@ -154,8 +154,8 @@ void choose_sort_big(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
         ft_tri5(stack_a, stack_b, stock);
     else if(stock->size_all <= 100)
 	{
+        set_nb_chunk(stock);
         ft_tri100(stack_a, stack_b, stock);
-		set_nb_chunk(stock);
 	}
     /*else if (stock->size_all > 100 && stock->size_all <= 500)
         ft_big_sort500(stack_a, stack_b, stock);
@@ -292,25 +292,35 @@ void get_size_a(t_stack **stack_a, t_stock *stock)
     stock->size_a = i;
 }
 
+void get_size_b(t_stack **stack_b, t_stock *stock)
+{
+    int i;
+    t_stack *tmp;
+
+    i = 0;
+    tmp = (*stack_b);
+    while (tmp)
+    {
+        tmp = tmp->next;
+        i++;
+    }
+    stock->size_b = i;
+}
+
 void    ft_tri100(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
 {   
-    int val;
-	int pos;
+    int	nb_chunk;
 
-	while (*stack_a)
+	nb_chunk = 1;
+	while (stock->size_a != 0)
 	{
-    	val = ft_indic100(stack_a, stock);
-    	pos = ft_pos(stack_a, val, stock);
-		printf("val = %d\n", val);
-		printf("pos = %d\n", pos);
-		ft_print_lst(*stack_a);
-		ft_remonte(stack_a, stack_b, stock);
 	}
-	while (*stack_b)
+	get_size_b(stack_b, stock);
+	while (stock->size_b)
 		ft_pa(stack_a, stack_b, stock);
 }	
 
-int   ft_indic100(t_stack **stack_a, t_stock *stock)
+/*int   ft_indic100(t_stack **stack_a, t_stock *stock)
 {
     int i;
     int val;
@@ -366,4 +376,4 @@ void	ft_remonte(t_stack **stack_a, t_stack **stack_b, t_stock *stock)
 		}
 		ft_pb(stack_a, stack_b, stock);
 	}
-}
+}*/

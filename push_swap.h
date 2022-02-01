@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 11:41:38 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/02/01 11:56:24 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/02/01 13:25:01 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_stack	*lstlast(t_stack *lst);
 long	ft_atoi(const char *str);
 t_stack	*newlst(int value);
 void	lstclear(t_stack **lst);
+int		min(t_stack *l);
 void	get_size_a(t_stack **stack_a, t_stock *stock);
 int		max(t_stack *l);
 int		ft_get_index(t_stack *l, int val);

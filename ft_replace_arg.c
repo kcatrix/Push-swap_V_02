@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 14:12:52 by kevyn             #+#    #+#             */
-/*   Updated: 2022/02/01 12:06:29 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/02/01 13:24:40 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,4 +192,20 @@ int	max(t_stack *l)
 			max = lst->content;
 	}
 	return (max);
+}
+
+int	min(t_stack *l)
+{
+	t_stack	*lst;
+	int		min;
+
+	lst = l;
+	min = lst->content;
+	while (lst->next)
+	{
+		lst = lst->next;
+		if (min > lst->content)
+			min = lst->content;
+	}
+	return (min);
 }
