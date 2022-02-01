@@ -6,7 +6,7 @@
 /*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 11:41:33 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/01/31 13:16:50 by kcatrix          ###   ########.fr       */
+/*   Updated: 2022/02/01 12:16:01 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,13 @@ int	main(int argc, char **argv)
 		return(0);
 	if (ft_verifclean(stack_a) == 0)
 		return (0);
-	//get_size(&stack_a, &stock);
-	direction(&stack_a, &stack_b, &stock);
+	get_size_a(&stack_a, &stock);
+	stack_a = ft_replace_nb(&stack_a, &stock);
 	ft_print_lst(stack_a);
-	//ft_print_lst(stack_b);
+	/*direction(&stack_a, &stack_b, &stock);
+	ft_print_lst(stack_a);
+	ft_print_lst(stack_b);*/
 }
-
 /*
 int	main(int argc, char **argv)
 {

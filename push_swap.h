@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 11:41:38 by tnicoue           #+#    #+#             */
-/*   Updated: 2022/01/29 13:53:08 by kevyn            ###   ########.fr       */
+/*   Updated: 2022/02/01 11:56:24 by kcatrix          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,18 @@ typedef struct s_stock
 } t_stock;
 
 t_stack	*ft_lstnew(int content);
+t_stack	*lstlast(t_stack *lst);
 long	ft_atoi(const char *str);
+t_stack	*newlst(int value);
+void	lstclear(t_stack **lst);
+void	get_size_a(t_stack **stack_a, t_stock *stock);
+int		max(t_stack *l);
+int		ft_get_index(t_stack *l, int val);
+void	lstadd_back(t_stack **alst, t_stack *new);
 void	ft_lstadd_front(t_stack **alst, t_stack *new);
 void	getbigger5(t_stack **stack_a, t_stock *stock);
 void	ft_checkaccept(t_stack **stack_a, t_stock *stock);
+void	*ft_calloc(size_t nmemb, size_t size);
 void	nmkcoup(t_stock *stock);
 int		ft_checktab(int valeur, int *tab);
 void	ft_accept_a(t_stack **stack_a, t_stock *stock);
@@ -73,7 +81,12 @@ int		get_size(t_stack **stack, t_stock *stock);
 void	ft_lstadd_back(t_stack **alst, t_stack *n);
 void	ft_tri4(t_stack **stack_a, t_stack **stack_b, t_stock *stock);
 void	ft_init_struct(t_stock *stack);
+void	*ft_memset(void *s, int c, size_t n);
+int		ft_is_all_max(int *tab, int size, int max);
+int		*ft_nb_in_tab(t_stack *p, t_stock *stock);
+t_stack	*ft_replace_nb(t_stack **stack_a, t_stock *stock);
 void	ft_print_lst(t_stack *stack);
+int		ft_get_index_min(int *tab, int size);
 void	free_split(char **cpy_argv);
 void	ft_tri3(t_stack **stack_a);
 void 	ft_tri2(t_stack **stack_a);

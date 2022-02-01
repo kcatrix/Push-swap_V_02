@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kevyn <kevyn@student.42.fr>                +#+  +:+       +#+         #
+#    By: kcatrix <kcatrix@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 11:41:26 by tnicoue           #+#    #+#              #
-#    Updated: 2022/01/17 20:36:50 by kevyn            ###   ########.fr        #
+#    Updated: 2022/02/01 12:11:08 by kcatrix          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME		= push_swap
 
 CC			= gcc
-CFLAGS		= -Wall -Wextra 
+CFLAGS		= -Wall -Wextra -Werror 
 
 SRC			= ${wildcard *.c}
 OBJ			= ${SRC:.c=.o}
@@ -26,7 +26,7 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): ${OBJ}
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -g
 
 clean:
 	rm -rf $(OBJ)
